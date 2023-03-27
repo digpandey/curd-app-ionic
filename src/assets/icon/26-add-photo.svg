@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="clip-_26-add-photo">
+      <rect width="512" height="512"/>
+    </clipPath>
+  </defs>
+  <g id="_26-add-photo" data-name="26-add-photo" clip-path="url(#clip-_26-add-photo)">
+    <path id="Icon_material-add-a-photo" data-name="Icon material-add-a-photo" d="M61.358,62.858V1.5h40.905V62.858h61.358v40.905H102.264v61.358H61.358V103.764H0V62.858Zm61.358,122.716V124.216h61.358V62.858H327.244l37.428,40.905h64.835a41.026,41.026,0,0,1,40.905,40.905V390.1a41.026,41.026,0,0,1-40.905,40.905H102.264A41.026,41.026,0,0,1,61.358,390.1V185.575ZM265.886,369.649A102.264,102.264,0,1,0,163.622,267.386,102.3,102.3,0,0,0,265.886,369.649ZM200.437,267.386a65.449,65.449,0,1,0,65.449-65.449A65.379,65.379,0,0,0,200.437,267.386Z" transform="translate(21 39.5)" fill="#9a9a9a"/>
+  </g>
+</svg>

@@ -1,20 +1,71 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Curd App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form #newItemForm="ngForm" *ngIf="!editMode">
+    <ion-item>
+    <ion-row class="ion-align-items-center" style="width: 100%;">
+      <ion-col size="5"><label>Name</label></ion-col>
+      <ion-col size="7"><ion-input [(ngModel)]="newItem.title" name="title" placeholder="Add New Item"></ion-input></ion-col>
+    </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row class="ion-align-items-center" style="width: 100%;">
+        <ion-col size="5"><label>Description</label></ion-col>
+        <ion-col size="7"><ion-input [(ngModel)]="newItem.dis" name="title" placeholder="Add New Item"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row class="ion-align-items-center" style="width: 100%;">
+        <ion-col size="5"><label>Take a Picture</label></ion-col>
+        <ion-col size="7"><ion-button style="margin-top: 0;" (click)="takePicture()" color="success"><ion-icon slot="icon-only" name="camera"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row class="ion-align-items-center ion-justify-content-end" style="width: 100%;">
+        <ion-col size="12"><ion-button (click)="addItem()" shape="round" expand="block" style="margin-top: 0; height: 48px;"><ion-icon slot="start" name="add-outline"></ion-icon>Add</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </form>
+
+  <form #editItemForm="ngForm" *ngIf="editMode">
+    <ion-item>
+      <ion-input [(ngModel)]="selectedItem.title" name="title" placeholder="Edit item"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="selectedItem.dis" name="dis" placeholder="Edit dis"></ion-input>
+    </ion-item>
+    <ion-item>
+        <img [src]="selectedItem.image" alt="" style="border-radius: 5px" width="100px"/>
+    </ion-item>
+    <ion-button (click)="updateItem()" expand="block">Update</ion-button>
+  </form>
+  <ion-list>
+
+  <div *ngFor="let item of items">
+    <ion-card style="box-shadow: none; border: 1px solid #2b3971">
+      <ion-card-header>
+        <ion-card-title style="color: #2b3971; font-size: 20px;">{{item.title}}
+          <span class="ion-float-right ion-color-danger">
+              <ion-icon name="create" (click)="editItem(item)"></ion-icon>
+              <ion-icon name="trash-outline" (click)="deleteItem(item)"></ion-icon></span></ion-card-title>
+        <p style="font-size: 12px; color: #9a9a9a">{{item.dis}}</p>
+        <div (click)="viewPhoto(item)" *ngIf="item.img" class="click-image ion-text-center"
+             style="width: 100%">
+          <img [src]="item.image" alt="" style="border-radius: 5px" width="100px"/>
+        </div>
+      </ion-card-header>
+    </ion-card>
   </div>
+  </ion-list>
+
 </ion-content>
